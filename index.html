@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="QTEwater — Industrial Water Management Solutions. ตัวแทนจำหน่าย FlowX® อย่างเป็นทางการในประเทศไทย">
+<title>QTEwater · Industrial Water Management</title>
+<link rel="stylesheet" href="_shared/style.css">
+<style>
+.hero{position:relative;overflow:hidden;height:calc(100vh - var(--topbar-height) - var(--nav-height));min-height:520px;max-height:820px;}
+.slides{position:absolute;inset:0;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;display:flex;align-items:center;}
+.slide.active{opacity:1;z-index:2;}
+.slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1);transition:transform 8s ease;}
+.slide.active .slide-bg{transform:scale(1.05);}
+.slide:nth-child(1) .slide-bg{background:linear-gradient(110deg,rgba(11,36,71,.88) 0%,rgba(18,97,171,.6) 60%,rgba(56,174,224,.2) 100%),url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&q=80') center/cover;}
+.slide:nth-child(2) .slide-bg{background:linear-gradient(110deg,rgba(11,36,71,.85) 0%,rgba(0,180,200,.45) 100%),url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80') center/cover;}
+.slide:nth-child(3) .slide-bg{background:linear-gradient(110deg,rgba(11,36,71,.88) 0%,rgba(18,97,171,.65) 100%),url('https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=1600&q=80') center/cover;}
+.slide-content{position:relative;z-index:3;width:100%;max-width:1160px;margin:0 auto;padding:0 32px;}
+.slide-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(56,174,224,.18);border:1px solid rgba(56,174,224,.35);border-radius:3px;padding:5px 14px;margin-bottom:20px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:2.5px;color:var(--cyan);text-transform:uppercase;}
+.slide-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.slide-title{font-family:var(--font-display);font-size:clamp(40px,6.5vw,82px);font-weight:900;line-height:.93;letter-spacing:-2.5px;color:var(--white);margin-bottom:18px;}
+.slide-title em{display:block;color:var(--cyan);font-style:normal;}
+.slide-sub{font-size:clamp(14px,1.6vw,17px);color:rgba(255,255,255,.72);max-width:500px;line-height:1.7;margin-bottom:32px;}
+.slider-arrows{position:absolute;bottom:50%;transform:translateY(50%);width:100%;display:flex;justify-content:space-between;padding:0 18px;z-index:10;pointer-events:none;}
+.arrow-btn{pointer-events:all;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:var(--white);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition);backdrop-filter:blur(4px);}
+.arrow-btn:hover{background:var(--sky);border-color:var(--sky);}
+.slider-dots{position:absolute;bottom:112px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;}
+.sdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);border:1.5px solid rgba(255,255,255,.5);cursor:pointer;transition:var(--transition);}
+.sdot.active{width:28px;border-radius:4px;background:var(--cyan);border-color:var(--cyan);}
+.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:10;background:rgba(11,36,71,.93);backdrop-filter:blur(8px);border-top:1px solid rgba(56,174,224,.22);}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-cell{padding:16px 20px;border-right:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:12px;}
+.stat-cell:last-child{border-right:none;}
+.s-icon{font-size:20px;}
+.s-num{font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--cyan);line-height:1;}
+.s-lbl{font-size:10.5px;color:rgba(255,255,255,.5);margin-top:2px;}
+/* CARDS */
+.section-cards{padding:80px 0 96px;}
+.cards-header{text-align:center;margin-bottom:52px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px;}
+.nav-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);display:flex;flex-direction:column;text-decoration:none;color:inherit;}
+.nav-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg);border-color:var(--sky);}
+.nca{height:4px;background:var(--ltblue);transition:background var(--transition);}
+.nav-card:hover .nca{background:var(--sky);}
+.nav-card.c-cyan:hover .nca{background:var(--cyan);}
+.ncd{padding:26px 24px;flex:1;}
+.ncd .num{font-family:var(--font-mono);font-size:10px;letter-spacing:3px;color:var(--sky);margin-bottom:10px;}
+.ncd h3{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--navy);margin-bottom:4px;letter-spacing:-.3px;}
+.ncd .en{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--midgrey);text-transform:uppercase;margin-bottom:10px;}
+.ncd p{font-size:13.5px;color:var(--grey);line-height:1.65;}
+.ncf{padding:13px 24px;background:var(--offwhite);border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;}
+.ncf span{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);transition:color var(--transition);}
+.nav-card:hover .ncf span{color:var(--sky);}
+.ncf .arr{font-size:16px;transition:transform var(--transition);}
+.nav-card:hover .ncf .arr{transform:translateX(4px);}
+.nav-cards-wide{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.ncw{display:flex;align-items:stretch;background:var(--white);border:1px solid var(--rule);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);text-decoration:none;color:inherit;}
+.ncw:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--sky);}
+.ncw-ico{width:86px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:34px;background:var(--cloud);border-right:1px solid var(--rule);transition:background var(--transition);}
+.ncw:hover .ncw-ico{background:var(--ltblue);}
+.ncw-bd{padding:20px 22px;flex:1;}
+.ncw-bd h3{font-family:var(--font-display);font-size:19px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.ncw-bd .en{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--midgrey);text-transform:uppercase;margin-bottom:7px;}
+.ncw-bd p{font-size:13px;color:var(--grey);line-height:1.6;}
+.ncw-lnk{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);transition:gap var(--transition);}
+.ncw:hover .ncw-lnk{gap:9px;color:var(--sky);}
+/* ROI TEASER */
+.roi-teaser{padding:64px 0;background:var(--navy);}
+.roi-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.roi-numbers{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.roi-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:22px;text-align:center;}
+.roi-box.hi{background:rgba(56,174,224,.1);border-color:rgba(56,174,224,.25);}
+.roi-box .rn{font-family:var(--font-display);font-size:34px;font-weight:900;line-height:1;}
+.roi-box .rl{font-size:11px;color:rgba(255,255,255,.45);margin-top:5px;}
+/* CONTACT */
+.home-contact{padding:80px 0;background:var(--offwhite);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:60px;align-items:start;}
+.ci-list{display:flex;flex-direction:column;gap:16px;margin:24px 0 28px;}
+.ci{display:flex;gap:13px;align-items:flex-start;}
+.ci-ico{width:40px;height:40px;border-radius:8px;background:var(--cloud);border:1px solid var(--ltblue);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.ci-t .lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:2px;}
+.ci-t p{font-size:14px;color:var(--navy);font-weight:500;}
+.ci-t a{color:var(--blue);}
+.cform{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-md);}
+.cform h3{font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--navy);margin-bottom:22px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:5px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;background:var(--offwhite);border:1.5px solid var(--rule);border-radius:var(--radius);font-family:var(--font-thai);font-size:14px;color:var(--navy);outline:none;transition:border-color var(--transition),box-shadow var(--transition);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(56,174,224,.12);}
+.fg textarea{resize:vertical;min-height:88px;}
+.fsub{width:100%;padding:13px;border:none;cursor:pointer;background:var(--blue);color:var(--white);border-radius:var(--radius);font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background var(--transition),transform var(--transition);}
+.fsub:hover{background:var(--sky);transform:translateY(-2px);}
+.fnote{font-size:11.5px;color:var(--grey);text-align:center;margin-top:9px;}
+@media(max-width:900px){.nav-cards{grid-template-columns:1fr 1fr;}.stats-row{grid-template-columns:repeat(2,1fr);}.contact-grid{grid-template-columns:1fr;}.roi-inner{grid-template-columns:1fr;gap:36px;}}
+@media(max-width:600px){.nav-cards,.nav-cards-wide{grid-template-columns:1fr;}.frow{grid-template-columns:1fr;}.stat-cell{padding:12px 14px;}}
+</style>
+</head>
+<body data-page="index" class="lang-th">
+<div id="nav-mount"></div>
+
+<section class="hero">
+  <div class="slides" id="slides">
+    <div class="slide active"><div class="slide-bg"></div>
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span data-lang="th">ตัวแทนจำหน่ายอย่างเป็นทางการ · FlowX® Thailand</span><span data-lang="en">Authorized FlowX® Distributor · Thailand</span></div>
+        <h1 class="slide-title"><span data-lang="th">Industrial<em>Water Management</em></span><span data-lang="en">Industrial<em>Water Management</em></span></h1>
+        <p class="slide-sub"><span data-lang="th">ลดการสูญเสียพลังงานจาก Mineral Scale ด้วยเทคโนโลยี TGP® ระดับโลก ไม่ต้องใช้สารเคมี ไม่ต้องใช้ไฟฟ้า</span><span data-lang="en">Eliminate energy loss from mineral scale with world-class TGP® technology. No chemicals. No power supply required.</span></p>
+        <div class="btn-group"><a href="products.html" class="btn btn-primary"><span data-lang="th">ดูผลิตภัณฑ์ →</span><span data-lang="en">View Products →</span></a><a href="#roi-teaser" class="btn btn-white"><span data-lang="th">คำนวณการประหยัด</span><span data-lang="en">ROI Snapshot</span></a></div>
+      </div>
+    </div>
+    <div class="slide"><div class="slide-bg"></div>
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span data-lang="th">Energy Efficiency · Scale Prevention</span><span data-lang="en">Energy Efficiency · Scale Prevention</span></div>
+        <h1 class="slide-title"><span data-lang="th">Scale ทำให้คุณ<em>เสียพลังงาน 5–15%</em></span><span data-lang="en">Scale Is Costing You<em>5–15% Energy</em></span></h1>
+        <p class="slide-sub"><span data-lang="th">ระบบ Cooling Tower, Chiller, Heat Exchanger ของคุณสูญเสียพลังงานอยู่ทุกวัน FlowX® หยุดปัญหาได้ตั้งแต่ต้นทาง</span><span data-lang="en">Your Cooling Tower, Chiller and Heat Exchanger are bleeding energy daily. FlowX® stops the problem at source.</span></p>
+        <div class="btn-group"><a href="technology.html" class="btn btn-primary"><span data-lang="th">เรียนรู้เทคโนโลยี →</span><span data-lang="en">Learn the Technology →</span></a><a href="cases.html" class="btn btn-white"><span data-lang="th">ดูกรณีศึกษา</span><span data-lang="en">Case Studies</span></a></div>
+      </div>
+    </div>
+    <div class="slide"><div class="slide-bg"></div>
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span data-lang="th">ESG · Carbon Neutrality · Net Zero</span><span data-lang="en">ESG · Carbon Neutrality · Net Zero</span></div>
+        <h1 class="slide-title"><span data-lang="th">ลด CO₂<em>สู่เป้าหมาย Net Zero</em></span><span data-lang="en">Cut CO₂ Toward<em>Your Net Zero Goal</em></span></h1>
+        <p class="slide-sub"><span data-lang="th">ประหยัดพลังงานได้ 700,000 kWh ต่อปี ลดการปล่อย CO₂ ได้ถึง 350 ตันต่อปีต่อโรงงาน</span><span data-lang="en">Save 700,000 kWh per year. Reduce CO₂ by up to 350 tonnes per plant annually.</span></p>
+        <div class="btn-group"><a href="cases.html" class="btn btn-primary"><span data-lang="th">ดูผลลัพธ์จริง →</span><span data-lang="en">See Real Results →</span></a><a href="#contact" class="btn btn-white"><span data-lang="th">ติดต่อเรา</span><span data-lang="en">Contact Us</span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="slider-arrows"><button class="arrow-btn" id="prev-btn">‹</button><button class="arrow-btn" id="next-btn">›</button></div>
+  <div class="slider-dots" id="sdots"><div class="sdot active" data-i="0"></div><div class="sdot" data-i="1"></div><div class="sdot" data-i="2"></div></div>
+  <div class="hero-stats"><div class="container"><div class="stats-row">
+    <div class="stat-cell"><div class="s-icon">⚡</div><div><div class="s-num">5–15%</div><div class="s-lbl" data-lang="th">Energy Loss จาก Mineral Scale</div><div class="s-lbl" data-lang="en">Energy Loss from Scale</div></div></div>
+    <div class="stat-cell"><div class="s-icon">🌍</div><div><div class="s-num">80+</div><div class="s-lbl" data-lang="th">ประเทศที่ใช้เทคโนโลยี FlowX®</div><div class="s-lbl" data-lang="en">Countries using FlowX®</div></div></div>
+    <div class="stat-cell"><div class="s-icon">💰</div><div><div class="s-num">&lt;1yr</div><div class="s-lbl">Payback Period</div></div></div>
+    <div class="stat-cell"><div class="s-icon">🌿</div><div><div class="s-num">350t</div><div class="s-lbl" data-lang="th">CO₂ ลดได้ต่อปีต่อโรงงาน</div><div class="s-lbl" data-lang="en">CO₂ Reduced Per Plant/yr</div></div></div>
+  </div></div></div>
+</section>
+
+<section class="section-cards" id="explore">
+  <div class="container">
+    <div class="cards-header reveal">
+      <div class="label-tag"><span data-lang="th">สำรวจ QTEwater</span><span data-lang="en">Explore QTEwater</span></div>
+      <h2><span data-lang="th">ทุกสิ่งที่คุณต้องการ <em class="sky">อยู่ที่นี่</em></span><span data-lang="en">Everything You Need <em class="sky">Is Here</em></span></h2>
+      <p style="color:var(--grey);font-size:15px;margin-top:8px;"><span data-lang="th">เลือกหัวข้อที่สนใจเพื่อเรียนรู้เพิ่มเติม</span><span data-lang="en">Select a topic to explore in depth</span></p>
+    </div>
+    <div class="nav-cards">
+      <a href="about.html" class="nav-card reveal reveal-delay-1"><div class="nca"></div><div class="ncd"><div class="num">01 //</div><h3 data-lang="th">เกี่ยวกับเรา</h3><h3 data-lang="en">About Us</h3><div class="en">About QTEwater</div><p><span data-lang="th">QTEwater คือใคร มาจากไหน และทำไมเราถึงเป็นพาร์ตเนอร์ที่ดีที่สุดสำหรับ Industrial Water Management ในประเทศไทย</span><span data-lang="en">Who is QTEwater, where we come from, and why we are the best partner for Industrial Water Management in Thailand.</span></p></div><div class="ncf"><span data-lang="th">อ่านเพิ่มเติม</span><span data-lang="en">Read More</span><span class="arr">→</span></div></a>
+      <a href="technology.html" class="nav-card reveal reveal-delay-2"><div class="nca"></div><div class="ncd"><div class="num">02 //</div><h3 data-lang="th">เทคโนโลยี TGP®</h3><h3 data-lang="en">TGP® Technology</h3><div class="en">FlowX® Science Deep-Dive</div><p><span data-lang="th">ทำความเข้าใจกลไก Turbulent Galvanic Polarization ว่าทำงานอย่างไร ทำไมถึงได้ผล และต่างจากวิธีเดิมอย่างไร</span><span data-lang="en">Understand how Turbulent Galvanic Polarization works, why it delivers results, and how it differs from conventional methods.</span></p></div><div class="ncf"><span data-lang="th">ดูเทคโนโลยี</span><span data-lang="en">Explore Tech</span><span class="arr">→</span></div></a>
+      <a href="products.html" class="nav-card c-cyan reveal reveal-delay-3"><div class="nca"></div><div class="ncd"><div class="num">03 //</div><h3 data-lang="th">ผลิตภัณฑ์</h3><h3 data-lang="en">Products</h3><div class="en">FlowX® Industrial Series</div><p><span data-lang="th">Blue Line, Red Line และ DN65 Hybrid — สเปคสมบูรณ์ ตารางเปรียบเทียบ และคำแนะนำการเลือกรุ่น</span><span data-lang="en">Blue Line, Red Line and DN65 Hybrid — full specs, comparison table and guidance on selecting the right model.</span></p></div><div class="ncf"><span data-lang="th">ดูผลิตภัณฑ์</span><span data-lang="en">See Products</span><span class="arr">→</span></div></a>
+    </div>
+    <div class="nav-cards-wide">
+      <a href="cases.html" class="ncw reveal reveal-delay-1"><div class="ncw-ico">📊</div><div class="ncw-bd"><h3 data-lang="th">กรณีศึกษา</h3><h3 data-lang="en">Case Studies</h3><div class="en">Historic Results · Before &amp; After</div><p><span data-lang="th">ผลลัพธ์จริงจากการติดตั้ง Before &amp; After และ Testimonials จากลูกค้า</span><span data-lang="en">Real installation results — Before &amp; After comparisons and client testimonials.</span></p><div class="ncw-lnk"><span data-lang="th">ดูกรณีศึกษา</span><span data-lang="en">View Cases</span> →</div></div></a>
+      <a href="#contact" class="ncw reveal reveal-delay-2"><div class="ncw-ico">💬</div><div class="ncw-bd"><h3 data-lang="th">ติดต่อ / ขอใบเสนอราคา</h3><h3 data-lang="en">Contact / Request Quote</h3><div class="en">Free Consultation — No Obligation</div><p><span data-lang="th">ทีมวิศวกรพร้อมสำรวจหน้างานและวิเคราะห์ระบบ — ฟรี ไม่มีข้อผูกมัด</span><span data-lang="en">Our engineers will survey your site and analyse the system at no cost, with no obligation.</span></p><div class="ncw-lnk" style="color:var(--green);"><span data-lang="th">ติดต่อเรา</span><span data-lang="en">Get in Touch</span> →</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="roi-teaser" id="roi-teaser">
+  <div class="container">
+    <div class="roi-inner">
+      <div class="reveal">
+        <div class="label-tag" style="color:var(--cyan);">ROI Snapshot</div>
+        <h2 style="color:var(--white);margin-bottom:12px;"><span data-lang="th">ระบบ 1 MW ประหยัดได้<em class="cyan"> 2–3 ล้านบาท/ปี</em></span><span data-lang="en">A 1 MW System Saves<em class="cyan"> ฿2–3M Per Year</em></span></h2>
+        <p style="color:rgba(255,255,255,.62);font-size:15px;line-height:1.7;margin-bottom:26px;"><span data-lang="th">Cooling Tower 1 MW · ค่าไฟ 32 ล้านบาท/ปี · Scale Loss 10% = 3.2 ล้านบาทที่สูญไป FlowX® กู้คืนได้ 80% — Payback ไม่ถึง 1 ปี</span><span data-lang="en">1 MW Cooling Tower · ฿32M/yr electricity · 10% scale loss = ฿3.2M wasted. FlowX® recovers ~80% — payback under 1 year.</span></p>
+        <a href="technology.html" class="btn btn-ghost"><span data-lang="th">ดูการคำนวณแบบละเอียด →</span><span data-lang="en">Full ROI Calculator →</span></a>
+      </div>
+      <div class="roi-numbers reveal reveal-delay-2">
+        <div class="roi-box"><div class="rn" style="color:var(--warn);">3.2M ฿</div><div class="rl"><span data-lang="th">ค่าไฟที่สูญเสียต่อปี</span><span data-lang="en">Energy wasted / yr</span></div></div>
+        <div class="roi-box hi"><div class="rn" style="color:var(--cyan);">2.6M ฿</div><div class="rl"><span data-lang="th">ประหยัดได้ต่อปี</span><span data-lang="en">Savings / yr</span></div></div>
+        <div class="roi-box"><div class="rn" style="color:var(--green);">&lt;1<span style="font-size:18px;"> <span data-lang="th">ปี</span><span data-lang="en">yr</span></span></div><div class="rl">Payback Period</div></div>
+        <div class="roi-box"><div class="rn" style="color:var(--sky);">350t</div><div class="rl"><span data-lang="th">CO₂ ลดได้ต่อปี</span><span data-lang="en">CO₂ reduced / yr</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="label-tag">Contact</div>
+        <h2><span data-lang="th">พร้อมให้คำปรึกษา<em class="sky"> ฟรีวันนี้</em></span><span data-lang="en">Free Consultation<em class="sky"> Today</em></span></h2>
+        <p style="color:var(--steel);font-size:15px;line-height:1.7;margin-top:10px;"><span data-lang="th">ทีมวิศวกรผู้เชี่ยวชาญของ QTEwater พร้อมสำรวจหน้างาน วิเคราะห์ระบบ และนำเสนอโซลูชัน</span><span data-lang="en">QTEwater's engineering specialists are ready to survey your site, analyse your system and propose the right solution.</span></p>
+        <div class="ci-list">
+          <div class="ci"><div class="ci-ico">📞</div><div class="ci-t"><div class="lbl" data-lang="th">โทรศัพท์</div><div class="lbl" data-lang="en">Phone</div><p><a href="tel:+6600000000">+66-XX-XXX-XXXX</a></p></div></div>
+          <div class="ci"><div class="ci-ico">✉️</div><div class="ci-t"><div class="lbl">Email</div><p><a href="mailto:info@qtewater.com">info@qtewater.com</a></p></div></div>
+          <div class="ci"><div class="ci-ico">🕐</div><div class="ci-t"><div class="lbl" data-lang="th">เวลาทำการ</div><div class="lbl" data-lang="en">Hours</div><p data-lang="th">จันทร์–ศุกร์ · 8:30–17:00 น.</p><p data-lang="en">Mon–Fri · 08:30–17:00</p></div></div>
+        </div>
+      </div>
+      <div class="cform reveal reveal-delay-2">
+        <h3><span data-lang="th">📋 ส่งข้อความหาเรา</span><span data-lang="en">📋 Send Us a Message</span></h3>
+        <div class="frow">
+          <div class="fg"><label data-lang="th">ชื่อ-นามสกุล *</label><label data-lang="en">Full Name *</label><input type="text"></div>
+          <div class="fg"><label data-lang="th">บริษัท</label><label data-lang="en">Company</label><input type="text"></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label data-lang="th">เบอร์โทร *</label><label data-lang="en">Phone *</label><input type="tel"></div>
+          <div class="fg"><label>Email</label><input type="email"></div>
+        </div>
+        <div class="fg"><label data-lang="th">ประเภทระบบ</label><label data-lang="en">System Type</label>
+          <select><option data-lang="th">-- เลือกประเภท --</option><option data-lang="en">-- Select type --</option><option>Cooling Tower</option><option>Chiller System</option><option>Heat Exchanger</option><option>Boiler</option><option data-lang="th">อื่น ๆ</option><option data-lang="en">Other</option></select>
+        </div>
+        <div class="fg"><label data-lang="th">รายละเอียด</label><label data-lang="en">Message</label><textarea rows="3"></textarea></div>
+        <button class="fsub"><span data-lang="th">ส่งข้อความ — ติดต่อกลับใน 24 ชม. →</span><span data-lang="en">Send — We Reply Within 24 hrs →</span></button>
+        <p class="fnote"><span data-lang="th">🔒 ข้อมูลของคุณจะถูกเก็บเป็นความลับ</span><span data-lang="en">🔒 Your information is kept strictly confidential.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="_shared/nav.js"></script>
+<script>
+let cur=0;const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.sdot');let tmr;
+function goTo(n){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');dots[cur].classList.add('active');}
+function start(){clearInterval(tmr);tmr=setInterval(()=>goTo(cur+1),5800);}
+document.getElementById('prev-btn').addEventListener('click',()=>{goTo(cur-1);start();});
+document.getElementById('next-btn').addEventListener('click',()=>{goTo(cur+1);start();});
+dots.forEach(d=>d.addEventListener('click',()=>{goTo(+d.dataset.i);start();}));
+start();
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="th"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>QTEwater · เทคโนโลยี TGP® / Technology</title>
+<link rel="stylesheet" href="_shared/style.css">
+<style>
+/* TECH DEEP DIVE */
+.tech-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:80px;}
+.science-box{background:var(--navy);border-radius:var(--radius-lg);padding:40px;color:var(--white);}
+.science-box h3{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--white);margin-bottom:16px;}
+.science-step{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.science-step:last-child{border-bottom:none;}
+.sci-num{font-family:var(--font-mono);font-size:20px;font-weight:800;color:var(--cyan);flex-shrink:0;line-height:1;width:32px;}
+.sci-t h4{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.sci-t p{font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.6;}
+/* VS GRID */
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center;background:var(--navy);border-radius:var(--radius-lg);padding:40px;margin-bottom:48px;}
+.vs-col h3{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
+.vs-col.bad h3{color:rgba(232,85,48,.85);}
+.vs-col.good h3{color:rgba(0,194,140,.85);}
+.vs-item{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.7);}
+.vs-item:last-child{border-bottom:none;}
+.vs-circle{width:60px;height:60px;border-radius:50%;background:rgba(56,174,224,.12);border:2px solid rgba(56,174,224,.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--cyan);flex-shrink:0;}
+/* TECH CARDS */
+.tech-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:48px;}
+.tc{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-sm);transition:transform var(--transition),box-shadow var(--transition);}
+.tc:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
+.tc-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.tc-icon{font-size:30px;}
+.tc h3{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--navy);}
+.tc .en{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--midgrey);text-transform:uppercase;margin-top:2px;}
+.tc p{font-size:13.5px;color:var(--grey);line-height:1.7;}
+.tc .chips{margin-top:14px;}
+/* FLOW */
+.flow-vis{background:var(--offwhite);border-radius:var(--radius-lg);padding:40px;margin-bottom:48px;}
+.flow-vis h3{font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--navy);margin-bottom:28px;}
+.flow-row{display:flex;align-items:stretch;gap:0;}
+.fs{flex:1;background:var(--white);border:1px solid var(--rule);border-radius:6px;padding:20px 14px;text-align:center;position:relative;transition:background var(--transition);}
+.fs:hover{background:var(--cloud);}
+.fs.active{background:var(--blue);border-color:var(--blue);}
+.fs.active p,.fs.active h4{color:var(--white) !important;}
+.fs::after{content:'→';position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:var(--sky);font-size:18px;font-weight:700;z-index:2;}
+.fs:last-child::after{display:none;}
+.fs .fi{font-size:22px;margin-bottom:8px;}
+.fs h4{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:4px;}
+.fs p{font-size:11px;color:var(--grey);line-height:1.4;}
+.flow-arrow{width:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--sky);font-size:18px;}
+/* NO-CHEM */
+.no-chem{display:flex;background:var(--navy);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:48px;}
+.nc-item{flex:1;padding:22px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;gap:6px;}
+.nc-item:last-child{border-right:none;}
+.nc-item span{font-size:22px;}
+.nc-item p{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.85);}
+/* ROI CALC */
+.calc-wrap{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-md);}
+.calc-wrap h3{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--navy);margin-bottom:24px;}
+.cfield{margin-bottom:18px;}
+.cfield label{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:6px;}
+.cfield-row{display:flex;}
+.cinput{flex:1;padding:11px 14px;background:var(--offwhite);border:1.5px solid var(--rule);border-radius:6px 0 0 6px;font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--navy);outline:none;transition:border-color var(--transition);}
+.cinput:focus{border-color:var(--sky);}
+.cunit{padding:11px 14px;background:var(--ltblue);border:1.5px solid var(--rule);border-left:none;border-radius:0 6px 6px 0;font-family:var(--font-mono);font-size:11px;color:var(--blue);font-weight:600;letter-spacing:1px;white-space:nowrap;}
+.cslider{width:100%;margin-top:8px;accent-color:var(--sky);}
+.cdiv{height:1px;background:var(--rule);margin:20px 0;}
+.cresults{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.cres{background:var(--offwhite);border:1px solid var(--rule);border-radius:6px;padding:14px;text-align:center;}
+.cres.hi{background:var(--cloud);border-color:var(--sky);border-width:2px;}
+.cres .rl{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:5px;}
+.cres .rv{font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--navy);line-height:1;}
+.cres .ru{font-size:11px;color:var(--grey);margin-top:3px;}
+.cres.warn .rv{color:var(--warn);}
+.cres.hi .rv{color:var(--blue);}
+.ccta{width:100%;padding:13px;background:var(--blue);color:var(--white);border:none;border-radius:6px;font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background var(--transition),transform var(--transition);}
+.ccta:hover{background:var(--sky);transform:translateY(-2px);}
+@media(max-width:900px){.tech-intro-grid{grid-template-columns:1fr;}.vs-grid{grid-template-columns:1fr;}.tech-cards{grid-template-columns:1fr;}.cresults{grid-template-columns:1fr 1fr;}.flow-row{flex-direction:column;}.fs::after{content:'↓';right:50%;bottom:-18px;top:auto;transform:translateX(50%);}.no-chem{flex-wrap:wrap;}.nc-item{min-width:45%;}}
+@media(max-width:600px){.cresults{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body data-page="technology" class="lang-th">
+<div id="nav-mount"></div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-badge">02 // Technology · TGP®</div>
+    <h1><span data-lang="th">เทคโนโลยี <em class="cyan">TGP®</em></span><span data-lang="en">TGP® <em class="cyan">Technology</em></span></h1>
+    <p class="lead"><span data-lang="th">Turbulent Galvanic Polarization — สิทธิบัตรสวิส ควบคุมโครงสร้างผลึกแร่ธาตุในน้ำ ป้องกัน Scale ตั้งแต่ต้นทาง โดยไม่ต้องใช้สารเคมีหรือไฟฟ้า</span><span data-lang="en">Turbulent Galvanic Polarization — Swiss patent that controls mineral crystal structure in water, preventing scale at source without chemicals or electricity.</span></p>
+    <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.5px;color:rgba(255,255,255,.4);">
+      <a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="th">หน้าหลัก</a><a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="en">Home</a>
+      <span style="color:rgba(255,255,255,.2);">/</span>
+      <span data-lang="th">เทคโนโลยี</span><span data-lang="en">Technology</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="tech-intro-grid">
+      <div class="reveal">
+        <div class="label-tag"><span data-lang="th">กลไกการทำงาน</span><span data-lang="en">How It Works</span></div>
+        <h2><span data-lang="th">FlowX® ทำงาน <em class="sky">อย่างไร</em></span><span data-lang="en">How FlowX® <em class="sky">Works</em></span></h2>
+        <p style="color:var(--grey);font-size:14px;line-height:1.75;margin:14px 0 22px;"><span data-lang="th">แทนที่จะกำจัด Scale หลังจากที่เกิดแล้ว TGP® เปลี่ยนโครงสร้างผลึกของแร่ธาตุก่อนที่มันจะตกตะกอน ทำให้ผลึกไม่สามารถเกาะผิวท่อหรืออุปกรณ์ได้</span><span data-lang="en">Rather than removing scale after it forms, TGP® alters mineral crystal structure before precipitation occurs — so crystals simply cannot adhere to pipe surfaces or equipment.</span></p>
+        <div class="btn-group">
+          <a href="products.html" class="btn btn-primary"><span data-lang="th">ดูผลิตภัณฑ์ →</span><span data-lang="en">See Products →</span></a>
+          <a href="cases.html" class="btn btn-outline"><span data-lang="th">ดูผลลัพธ์จริง</span><span data-lang="en">Real Results</span></a>
+        </div>
+      </div>
+      <div class="science-box reveal reveal-delay-2">
+        <h3 data-lang="th">⚗️ กลไก TGP® ขั้นตอนต่อขั้นตอน</h3>
+        <h3 data-lang="en">⚗️ TGP® Mechanism Step by Step</h3>
+        <div class="science-step"><div class="sci-num">01</div><div class="sci-t"><h4 data-lang="th">Turbulence Generation</h4><h4 data-lang="en">Turbulence Generation</h4><p><span data-lang="th">น้ำไหลผ่าน TGP® Electrode ทำให้เกิดกระแสน้ำวนแบบ Turbulent</span><span data-lang="en">Water flows through TGP® electrode generating controlled turbulent flow patterns.</span></p></div></div>
+        <div class="science-step"><div class="sci-num">02</div><div class="sci-t"><h4>Galvanic Polarization</h4><p><span data-lang="th">สนามแม่เหล็กไฟฟ้าขนาดเล็กจาก Galvanic effect ส่งผลต่อ Ion ของแร่ธาตุ</span><span data-lang="en">Small electromagnetic field from galvanic effect influences mineral ions in the water.</span></p></div></div>
+        <div class="science-step"><div class="sci-num">03</div><div class="sci-t"><h4 data-lang="th">Crystal Structure Change</h4><h4 data-lang="en">Crystal Structure Change</h4><p><span data-lang="th">ผลึก CaCO₃ เปลี่ยนจาก Calcite (เกาะผิว) เป็น Aragonite (แขวนลอย)</span><span data-lang="en">CaCO₃ crystals shift from Calcite (sticky) to Aragonite (suspended) form.</span></p></div></div>
+        <div class="science-step"><div class="sci-num">04</div><div class="sci-t"><h4 data-lang="th">Scale Prevention</h4><h4 data-lang="en">Scale Prevention</h4><p><span data-lang="th">ผลึก Aragonite แขวนลอยในน้ำและถูกพัดพาออกไป ไม่เกาะผิวอุปกรณ์</span><span data-lang="en">Aragonite crystals remain suspended and are flushed away — no adhesion to surfaces.</span></p></div></div>
+      </div>
+    </div>
+
+    <!-- VS -->
+    <div class="vs-grid reveal">
+      <div class="vs-col bad">
+        <h3 data-lang="th">❌ ปัญหา · ไม่มี FlowX®</h3>
+        <h3 data-lang="en">❌ Problem · Without FlowX®</h3>
+        <div class="vs-item"><span>🔴</span><span data-lang="th">Scale สะสมบนผิว Heat Exchanger</span><span data-lang="en">Scale builds on Heat Exchanger surfaces</span></div>
+        <div class="vs-item"><span>🔴</span><span data-lang="th">ประสิทธิภาพ Heat Transfer ลดลง 35%</span><span data-lang="en">Heat Transfer efficiency drops 35%</span></div>
+        <div class="vs-item"><span>🔴</span><span data-lang="th">ค่าไฟฟ้าเพิ่มขึ้น 5–15% ทุกปี</span><span data-lang="en">Electricity costs rise 5–15% annually</span></div>
+        <div class="vs-item"><span>🔴</span><span data-lang="th">ต้องล้างระบบและใช้สารเคมีบ่อย</span><span data-lang="en">Frequent chemical cleaning required</span></div>
+        <div class="vs-item"><span>🔴</span><span data-lang="th">เครื่องจักรเสื่อมสภาพเร็ว</span><span data-lang="en">Equipment degrades faster</span></div>
+      </div>
+      <div class="vs-circle">VS</div>
+      <div class="vs-col good">
+        <h3 data-lang="th">✅ ผลลัพธ์ · มี FlowX®</h3>
+        <h3 data-lang="en">✅ Results · With FlowX®</h3>
+        <div class="vs-item"><span>🟢</span><span data-lang="th">ผลึกแร่ไม่สามารถเกาะผิวท่อได้</span><span data-lang="en">Mineral crystals cannot adhere to surfaces</span></div>
+        <div class="vs-item"><span>🟢</span><span data-lang="th">รักษาประสิทธิภาพ Heat Transfer ≥90%</span><span data-lang="en">Heat Transfer efficiency maintained ≥90%</span></div>
+        <div class="vs-item"><span>🟢</span><span data-lang="th">ลดค่าพลังงาน 2–3 ล้านบาทต่อปี</span><span data-lang="en">Reduce energy cost by ฿2–3M per year</span></div>
+        <div class="vs-item"><span>🟢</span><span data-lang="th">ไม่ต้องใช้สารเคมี ไม่ต้องต่อไฟฟ้า</span><span data-lang="en">No chemicals needed, no power supply</span></div>
+        <div class="vs-item"><span>🟢</span><span data-lang="th">ยืดอายุการใช้งานเครื่องจักร</span><span data-lang="en">Extended equipment service life</span></div>
+      </div>
+    </div>
+
+    <!-- FLOW DIAGRAM -->
+    <div class="flow-vis reveal">
+      <h3 data-lang="th">🔄 ขั้นตอนการทำงานในระบบ</h3>
+      <h3 data-lang="en">🔄 System Process Flow</h3>
+      <div class="flow-row">
+        <div class="fs"><div class="fi">💧</div><h4 data-lang="th">น้ำเข้า</h4><h4 data-lang="en">Water In</h4><p><span data-lang="th">น้ำที่มีแร่ธาตุละลายอยู่</span><span data-lang="en">Water with dissolved minerals</span></p></div>
+        <div class="flow-arrow">→</div>
+        <div class="fs active"><div class="fi">⚡</div><h4>FlowX® TGP®</h4><p><span data-lang="th">ปรับโครงสร้างผลึก</span><span data-lang="en">Crystal restructuring</span></p></div>
+        <div class="flow-arrow">→</div>
+        <div class="fs"><div class="fi">🔬</div><h4 data-lang="th">ผลึก Aragonite</h4><h4 data-lang="en">Aragonite Crystals</h4><p><span data-lang="th">แขวนลอย ไม่เกาะ</span><span data-lang="en">Suspended, non-adhesive</span></p></div>
+        <div class="flow-arrow">→</div>
+        <div class="fs"><div class="fi">🏭</div><h4 data-lang="th">ระบบ 90%+</h4><h4 data-lang="en">System 90%+</h4><p><span data-lang="th">ประสิทธิภาพคงที่</span><span data-lang="en">Stable efficiency</span></p></div>
+        <div class="flow-arrow">→</div>
+        <div class="fs"><div class="fi">📉</div><h4 data-lang="th">ลดพลังงาน</h4><h4 data-lang="en">Save Energy</h4><p><span data-lang="th">ลดค่าไฟ + ลด CO₂</span><span data-lang="en">Lower bills + CO₂</span></p></div>
+      </div>
+    </div>
+
+    <!-- NO-CHEM STRIP -->
+    <div class="no-chem reveal">
+      <div class="nc-item"><span>✅</span><p data-lang="th">ไม่ใช้สารเคมี</p><p data-lang="en">No Chemicals</p></div>
+      <div class="nc-item"><span>✅</span><p data-lang="th">ไม่ต้องต่อไฟฟ้า</p><p data-lang="en">No Power Supply</p></div>
+      <div class="nc-item"><span>✅</span><p data-lang="th">ไม่ต้องเปลี่ยนไส้กรอง</p><p data-lang="en">No Filter Changes</p></div>
+      <div class="nc-item"><span>✅</span><p data-lang="th">บำรุงรักษาต่ำมาก</p><p data-lang="en">Minimal Maintenance</p></div>
+      <div class="nc-item"><span>✅</span><p>ECO-FRIENDLY</p></div>
+    </div>
+
+    <!-- TECH CARDS -->
+    <div style="text-align:center;margin-bottom:36px;" class="reveal">
+      <div class="label-tag"><span data-lang="th">คุณสมบัติหลัก</span><span data-lang="en">Key Features</span></div>
+      <h2><span data-lang="th">ทำไม TGP® ถึง <em class="sky">แตกต่าง</em></span><span data-lang="en">Why TGP® Is <em class="sky">Different</em></span></h2>
+    </div>
+    <div class="tech-cards">
+      <div class="tc reveal reveal-delay-1"><div class="tc-top"><div class="tc-icon">⚡</div><div><h3>TGP® Electrode Technology</h3><div class="en">Core Patent</div></div></div><p><span data-lang="th">Electrode หลายชั้นที่ออกแบบมาเฉพาะ สร้าง Galvanic potential ที่ควบคุมได้แม่นยำ ปรับ Crystal formation ของ CaCO₃ ใน Water column ได้อย่างมีประสิทธิภาพ</span><span data-lang="en">Multi-layer electrode precisely engineered to generate a controlled galvanic potential, effectively modifying CaCO₃ crystal formation throughout the water column.</span></p><div class="chips"><span class="chip chip-blue">Swiss Patent</span><span class="chip">80+ Countries</span></div></div>
+      <div class="tc reveal reveal-delay-2"><div class="tc-top"><div class="tc-icon">🔬</div><div><h3 data-lang="th">Crystal Structure Control</h3><h3 data-lang="en">Crystal Structure Control</h3><div class="en">Aragonite vs Calcite</div></div></div><p><span data-lang="th">เปลี่ยน CaCO₃ จาก Calcite (ผลึกเข็มที่เกาะผิว) เป็น Aragonite (ผลึกเม็ดกลมที่แขวนลอย) ซึ่งไม่สามารถเกาะผิวโลหะได้ และถูกพัดพาออกไปพร้อมการไหลของน้ำ</span><span data-lang="en">Converts CaCO₃ from Calcite (needle crystals that adhere to surfaces) to Aragonite (spherical crystals that stay suspended and are carried away with water flow).</span></p><div class="chips"><span class="chip chip-blue">Calcite → Aragonite</span><span class="chip chip-green">Non-Adhesive</span></div></div>
+      <div class="tc reveal reveal-delay-3"><div class="tc-top"><div class="tc-icon">🔧</div><div><h3 data-lang="th">Inline Flange Installation</h3><h3 data-lang="en">Inline Flange Installation</h3><div class="en">DN40–DN150</div></div></div><p><span data-lang="th">ติดตั้งแบบ Inline ระหว่างท่อ รองรับขนาด DN40–DN150 ไม่ต้องหยุดระบบนาน ไม่ต้องรื้อท่อเดิม ติดตั้งเสร็จภายในวันเดียว ไม่มีการบำรุงรักษาต่อเนื่องหลังติดตั้ง</span><span data-lang="en">Installed inline between existing pipes. Supports DN40–DN150. Minimal downtime, no pipe replacement, installation completed in one day, with no ongoing maintenance required thereafter.</span></p><div class="chips"><span class="chip">DN40–DN150</span><span class="chip chip-green">1 Day Install</span></div></div>
+      <div class="tc reveal reveal-delay-4"><div class="tc-top"><div class="tc-icon">🌐</div><div><h3 data-lang="th">Global Proven Technology</h3><h3 data-lang="en">Global Proven Technology</h3><div class="en">Swiss Engineering</div></div></div><p><span data-lang="th">สิทธิบัตรระดับสากล ผ่านการทดสอบและการใช้งานจริงในกว่า 80 ประเทศ ทั้งใน Data Center, โรงงานเคมี, อุตสาหกรรมอาหาร และระบบ HVAC ขนาดใหญ่</span><span data-lang="en">International patent proven in real-world use across 80+ countries including Data Centres, chemical plants, food industry and large-scale HVAC systems.</span></p><div class="chips"><span class="chip chip-blue">International Patent</span><span class="chip">80+ Countries</span></div></div>
+    </div>
+
+    <!-- ROI CALCULATOR -->
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start;">
+      <div class="reveal">
+        <div class="label-tag">ROI Calculator</div>
+        <h2><span data-lang="th">คำนวณ <em class="sky">การประหยัด</em></span><span data-lang="en">Calculate Your <em class="sky">Savings</em></span></h2>
+        <p style="color:var(--grey);font-size:14px;line-height:1.75;margin:12px 0 20px;"><span data-lang="th">ระบุขนาดระบบของคุณด้านขวา เพื่อดูการประมาณการณ์การประหยัดพลังงานและ CO₂</span><span data-lang="en">Enter your system details on the right to see estimated energy savings and CO₂ reduction.</span></p>
+        <div style="background:var(--offwhite);border:1px solid var(--rule);border-left:4px solid var(--sky);border-radius:4px;padding:16px 18px;">
+          <p style="font-size:13px;color:var(--steel);line-height:1.65;"><span data-lang="th">💡 <strong>ตัวอย่าง:</strong> ระบบ 1 MW · 8,000 ชม./ปี · ค่าไฟ 4 บาท/kWh · Scale Loss 10% = ประหยัดได้ ~2.6 ล้านบาท/ปี</span><span data-lang="en">💡 <strong>Example:</strong> 1 MW system · 8,000 hrs/yr · ฿4/kWh · 10% scale loss = ~฿2.6M savings/year</span></p>
+        </div>
+        <div style="margin-top:20px;">
+          <a href="index.html#contact" class="btn btn-primary"><span data-lang="th">ขอใบเสนอราคา →</span><span data-lang="en">Request a Quote →</span></a>
+        </div>
+      </div>
+      <div class="calc-wrap reveal reveal-delay-2">
+        <h3 data-lang="th">🔢 คำนวณ ROI ของคุณ</h3>
+        <h3 data-lang="en">🔢 Your ROI Calculator</h3>
+        <div class="cfield"><label data-lang="th">กำลังไฟของระบบ (kW)</label><label data-lang="en">System Power (kW)</label><div class="cfield-row"><input type="number" class="cinput" id="ckw" value="1000" min="100" max="50000"><div class="cunit">kW</div></div></div>
+        <div class="cfield"><label data-lang="th">ชั่วโมงทำงานต่อปี</label><label data-lang="en">Operating Hours / Year</label><div class="cfield-row"><input type="number" class="cinput" id="chrs" value="8000" min="1000" max="8760"><div class="cunit" data-lang="th">ชม./ปี</div><div class="cunit" data-lang="en">hrs/yr</div></div></div>
+        <div class="cfield"><label data-lang="th">ค่าไฟฟ้าเฉลี่ย (บาท/kWh)</label><label data-lang="en">Electricity Rate (฿/kWh)</label><div class="cfield-row"><input type="number" class="cinput" id="crate" value="4.00" min="1" max="10" step="0.1"><div class="cunit">฿/kWh</div></div></div>
+        <div class="cfield"><label>Scale Loss: <span id="lpct">10</span>%</label><input type="range" class="cslider" id="closs" min="5" max="15" value="10"></div>
+        <div class="cdiv"></div>
+        <div class="cresults">
+          <div class="cres warn"><div class="rl" data-lang="th">พลังงานที่สูญเสีย</div><div class="rl" data-lang="en">Energy Wasted</div><div class="rv" id="r-kwh">800K</div><div class="ru">kWh/yr</div></div>
+          <div class="cres warn"><div class="rl" data-lang="th">ค่าไฟที่สูญเสีย</div><div class="rl" data-lang="en">Cost Wasted</div><div class="rv" id="r-thb">3.2M</div><div class="ru" data-lang="th">฿/ปี</div><div class="ru" data-lang="en">฿/yr</div></div>
+          <div class="cres hi"><div class="rl" data-lang="th">ประหยัดได้</div><div class="rl" data-lang="en">Estimated Save</div><div class="rv" id="r-save">2.6M</div><div class="ru" data-lang="th">฿/ปี</div><div class="ru" data-lang="en">฿/yr</div></div>
+          <div class="cres hi"><div class="rl">CO₂</div><div class="rv" id="r-co2">400t</div><div class="ru" data-lang="th">ตัน/ปี</div><div class="ru" data-lang="en">tonnes/yr</div></div>
+        </div>
+        <button class="ccta" onclick="location.href='index.html#contact'">
+          <span data-lang="th">📩 ขอใบเสนอราคา — ฟรี</span>
+          <span data-lang="en">📩 Request a Free Quote</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="_shared/nav.js"></script>
+<script>
+function calc(){
+  const kw=parseFloat(document.getElementById('ckw').value)||1000;
+  const hrs=parseFloat(document.getElementById('chrs').value)||8000;
+  const rate=parseFloat(document.getElementById('crate').value)||4;
+  const pct=parseFloat(document.getElementById('closs').value)/100;
+  document.getElementById('lpct').textContent=Math.round(pct*100);
+  const loss=kw*hrs*pct, save=loss*rate*.82, co2=loss*.0005;
+  const f=n=>n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?(n/1e3).toFixed(0)+'K':Math.round(n).toLocaleString();
+  document.getElementById('r-kwh').textContent=f(loss);
+  document.getElementById('r-thb').textContent=f(loss*rate);
+  document.getElementById('r-save').textContent=f(save);
+  document.getElementById('r-co2').textContent=f(co2)+'t';
+}
+['ckw','chrs','crate','closs'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+calc();
+</script>
+</body></html>

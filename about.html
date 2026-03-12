@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="th"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>QTEwater · เกี่ยวกับเรา / About Us</title>
+<link rel="stylesheet" href="_shared/style.css">
+<style>
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.about-img{position:relative;}
+.img-main{aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--cloud);box-shadow:var(--shadow-lg);}
+.img-main img{width:100%;height:100%;object-fit:cover;}
+.img-float{position:absolute;bottom:-22px;right:-22px;width:44%;aspect-ratio:1;border-radius:8px;overflow:hidden;border:4px solid var(--white);box-shadow:var(--shadow-md);background:var(--ltblue);}
+.img-float img{width:100%;height:100%;object-fit:cover;}
+.badge-exp{position:absolute;top:-14px;left:-14px;background:var(--blue);color:var(--white);border-radius:8px;padding:14px 16px;box-shadow:var(--shadow-md);text-align:center;}
+.badge-exp .n{font-family:var(--font-display);font-size:34px;font-weight:900;line-height:1;}
+.badge-exp .l{font-size:10px;opacity:.8;letter-spacing:1px;margin-top:2px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px;}
+.tag{padding:5px 13px;border-radius:20px;background:var(--cloud);border:1px solid var(--ltblue);font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:1px;color:var(--blue);text-transform:uppercase;}
+.check-list{display:flex;flex-direction:column;gap:13px;margin-bottom:28px;}
+.check-item{display:flex;gap:11px;align-items:flex-start;}
+.ck{width:20px;height:20px;border-radius:50%;background:var(--cloud);border:1.5px solid var(--sky);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;color:var(--sky);font-size:11px;font-weight:700;}
+.check-item p{font-size:14px;color:var(--steel);line-height:1.6;}
+.check-item strong{color:var(--navy);}
+.parent-card{padding:18px 20px;background:var(--offwhite);border:1px solid var(--rule);border-left:4px solid var(--sky);border-radius:4px;display:flex;gap:13px;align-items:flex-start;margin-top:24px;}
+.parent-card p{font-size:13px;color:var(--grey);line-height:1.65;}
+.parent-card strong{color:var(--navy);}
+.parent-card a{color:var(--blue);}
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.val-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius-lg);padding:28px 22px;box-shadow:var(--shadow-sm);transition:transform var(--transition),box-shadow var(--transition);}
+.val-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
+.val-icon{font-size:32px;margin-bottom:14px;}
+.val-card h3{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--navy);margin-bottom:7px;}
+.val-card p{font-size:13px;color:var(--grey);line-height:1.65;}
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--ltblue);}
+.tl-item{position:relative;margin-bottom:32px;}
+.tl-item::before{content:'';position:absolute;left:-24px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--sky);border:3px solid var(--white);box-shadow:0 0 0 2px var(--sky);}
+.tl-year{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--sky);margin-bottom:5px;}
+.tl-item h3{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.tl-item p{font-size:13px;color:var(--grey);line-height:1.6;}
+/* STATS BAR */
+.stats-band{background:var(--navy);padding:48px 0;}
+.stats-band-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.sb-item{text-align:center;padding:0 20px;border-right:1px solid rgba(255,255,255,.08);}
+.sb-item:last-child{border-right:none;}
+.sb-num{font-family:var(--font-display);font-size:48px;font-weight:900;color:var(--cyan);line-height:1;}
+.sb-lbl{font-size:13px;color:rgba(255,255,255,.55);margin-top:5px;}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;}.img-float,.badge-exp{display:none;}.values-grid{grid-template-columns:1fr 1fr;}.stats-band-inner{grid-template-columns:1fr 1fr;gap:24px;}}
+@media(max-width:600px){.values-grid{grid-template-columns:1fr;}.stats-band-inner{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body data-page="about" class="lang-th">
+<div id="nav-mount"></div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-badge"><span data-lang="th">01 // เกี่ยวกับเรา</span><span data-lang="en">01 // About Us</span></div>
+    <h1><span data-lang="th">ผู้เชี่ยวชาญด้าน<br>Water Management</span><span data-lang="en">Industrial Water<br>Management Experts</span></h1>
+    <p class="lead"><span data-lang="th">QTEwater คือสาขาเฉพาะทางของ Qualitech Equipment นำเทคโนโลยี FlowX® มาสู่อุตสาหกรรมไทยในฐานะตัวแทนจำหน่ายอย่างเป็นทางการ</span><span data-lang="en">QTEwater is the dedicated water division of Qualitech Equipment — authorized FlowX® distributor bringing world-class TGP® technology to Thai industry.</span></p>
+    <div class="page-hero .breadcrumb" style="margin-top:24px;display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.5px;color:rgba(255,255,255,.4);">
+      <a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="th">หน้าหลัก</a><a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="en">Home</a>
+      <span style="color:rgba(255,255,255,.2);">/</span>
+      <span data-lang="th">เกี่ยวกับเรา</span><span data-lang="en">About</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHO WE ARE -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal-left">
+        <div class="img-main"><img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=800&q=80" alt="Industrial facility" loading="lazy"></div>
+        <div class="img-float"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80" alt="FlowX device" loading="lazy"></div>
+        <div class="badge-exp"><div class="n">20+</div><div class="l" data-lang="th">ปีประสบการณ์</div><div class="l" data-lang="en">Years Experience</div></div>
+      </div>
+      <div class="reveal-right">
+        <div class="label-tag"><span data-lang="th">บริษัทของเรา</span><span data-lang="en">Our Company</span></div>
+        <h2><span data-lang="th">QTEwater <em class="sky">คือใคร</em></span><span data-lang="en">Who Is <em class="sky">QTEwater</em></span></h2>
+        <div class="tag-row">
+          <span class="tag">Authorized Distributor</span>
+          <span class="tag">FlowX® Thailand</span>
+          <span class="tag">Industrial Solutions</span>
+        </div>
+        <div class="check-list">
+          <div class="check-item"><div class="ck">✓</div><p><span data-lang="th"><strong>QTEwater</strong> คือสาขาเฉพาะทางด้านระบบน้ำของ Qualitech Equipment — ผู้นำด้านวิศวกรรมอุตสาหกรรมในประเทศไทย</span><span data-lang="en"><strong>QTEwater</strong> is the dedicated water management division of Qualitech Equipment — a leading industrial engineering company in Thailand.</span></p></div>
+          <div class="check-item"><div class="ck">✓</div><p><span data-lang="th">เราเป็น <strong>ตัวแทนจำหน่ายอย่างเป็นทางการของ FlowX®</strong> ในประเทศไทย นำเทคโนโลยี TGP® Swiss Engineering มาสู่โรงงานอุตสาหกรรมไทย</span><span data-lang="en">We are the <strong>official authorized distributor of FlowX®</strong> in Thailand, bringing Swiss TGP® engineering to Thai industrial plants.</span></p></div>
+          <div class="check-item"><div class="ck">✓</div><p><span data-lang="th">บริการครบวงจร: <strong>ที่ปรึกษา ออกแบบ ติดตั้ง และ After-sales</strong> โดยทีมวิศวกรผู้เชี่ยวชาญ</span><span data-lang="en">Full-service delivery: <strong>Consultation, system design, installation and after-sales support</strong> by a specialist engineering team.</span></p></div>
+          <div class="check-item"><div class="ck">✓</div><p><span data-lang="th">เปิดทำการวันจันทร์–ศุกร์ <strong>8:30–17:00 น.</strong> พร้อมให้คำปรึกษา <strong>ฟรีไม่มีค่าใช้จ่าย</strong></span><span data-lang="en">Open Mon–Fri <strong>08:30–17:00</strong>. Free consultation <strong>at no cost or obligation</strong>.</span></p></div>
+        </div>
+        <div class="btn-group">
+          <a href="index.html#contact" class="btn btn-primary"><span data-lang="th">ติดต่อทีมวิศวกร →</span><span data-lang="en">Contact Our Engineers →</span></a>
+          <a href="technology.html" class="btn btn-outline"><span data-lang="th">ดูเทคโนโลยี</span><span data-lang="en">Our Technology</span></a>
+        </div>
+        <div class="parent-card">
+          <div style="font-size:26px;flex-shrink:0;">🏢</div>
+          <p><strong>Qualitech Equipment Co., Ltd.</strong> — <span data-lang="th">บริษัทแม่ ผู้จัดจำหน่ายอุปกรณ์อุตสาหกรรมครบวงจร ตั้งแต่รถยก ระบบความปลอดภัย ระบบน้ำ และอุปกรณ์โรงงาน ประสบการณ์กว่า 20 ปี</span><span data-lang="en">Parent company. Full-range industrial equipment distributor — forklifts, safety equipment, water systems, plant equipment. Over 20 years of experience.</span> <a href="https://www.qte.co.th" target="_blank" rel="noopener">qte.co.th →</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-band-inner">
+      <div class="sb-item reveal reveal-delay-1"><div class="sb-num">20+</div><div class="sb-lbl" data-lang="th">ปีประสบการณ์</div><div class="sb-lbl" data-lang="en">Years Experience</div></div>
+      <div class="sb-item reveal reveal-delay-2"><div class="sb-num">80+</div><div class="sb-lbl" data-lang="th">ประเทศที่ FlowX® ใช้งาน</div><div class="sb-lbl" data-lang="en">Countries using FlowX®</div></div>
+      <div class="sb-item reveal reveal-delay-3"><div class="sb-num">100%</div><div class="sb-lbl" data-lang="th">Authorized Distributor</div><div class="sb-lbl" data-lang="en">Authorized Distributor</div></div>
+      <div class="sb-item reveal reveal-delay-4"><div class="sb-num">Free</div><div class="sb-lbl" data-lang="th">คำปรึกษาเบื้องต้น</div><div class="sb-lbl" data-lang="en">Initial Consultation</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="section section-alt">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;" class="reveal">
+      <div class="label-tag"><span data-lang="th">ค่านิยมของเรา</span><span data-lang="en">Our Values</span></div>
+      <h2><span data-lang="th">ทำไมต้องเลือก <em class="sky">QTEwater</em></span><span data-lang="en">Why Choose <em class="sky">QTEwater</em></span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="val-card reveal reveal-delay-1"><div class="val-icon">🏆</div><h3 data-lang="th">เทคโนโลยีชั้นนำ</h3><h3 data-lang="en">World-Class Technology</h3><p><span data-lang="th">FlowX® TGP® เป็นสิทธิบัตรสวิส ติดตั้งแล้วกว่า 80 ประเทศ ผ่านการพิสูจน์ในระดับอุตสาหกรรมจริง</span><span data-lang="en">FlowX® TGP® is a Swiss patent deployed in 80+ countries and proven in real industrial environments worldwide.</span></p></div>
+      <div class="val-card reveal reveal-delay-2"><div class="val-icon">🤝</div><h3 data-lang="th">พาร์ตเนอร์ที่เชื่อถือได้</h3><h3 data-lang="en">Trusted Partner</h3><p><span data-lang="th">เราไม่ได้แค่ขายสินค้า แต่เป็นพาร์ตเนอร์ระยะยาว ดูแลตั้งแต่การสำรวจหน้างานจนถึง After-sales Support</span><span data-lang="en">We are not just sellers — we are long-term partners, supporting you from site survey all the way through after-sales.</span></p></div>
+      <div class="val-card reveal reveal-delay-3"><div class="val-icon">🌿</div><h3 data-lang="th">มุ่งสู่ Net Zero</h3><h3 data-lang="en">Committed to Net Zero</h3><p><span data-lang="th">ทุกการติดตั้ง FlowX® ช่วยลด Carbon Emissions จริง รองรับเป้าหมาย ESG ขององค์กรคุณ</span><span data-lang="en">Every FlowX® installation delivers real carbon emission reductions, directly supporting your organisation's ESG goals.</span></p></div>
+      <div class="val-card reveal reveal-delay-1"><div class="val-icon">📐</div><h3 data-lang="th">วิศวกรรมแม่นยำ</h3><h3 data-lang="en">Engineering Precision</h3><p><span data-lang="th">ทีมวิศวกรผู้เชี่ยวชาญออกแบบโซลูชันที่เหมาะกับระบบจริงของคุณ ไม่ใช่ one-size-fits-all</span><span data-lang="en">Our specialist engineers design solutions tailored to your actual system — not a one-size-fits-all approach.</span></p></div>
+      <div class="val-card reveal reveal-delay-2"><div class="val-icon">💡</div><h3 data-lang="th">ประหยัดพลังงานจริง</h3><h3 data-lang="en">Real Energy Savings</h3><p><span data-lang="th">Payback Period ไม่ถึง 1 ปี สำหรับระบบส่วนใหญ่ ผลลัพธ์วัดได้จริงจากมิเตอร์ไฟฟ้า</span><span data-lang="en">Payback period under 1 year for most systems. Results are measurable directly from your electricity meters.</span></p></div>
+      <div class="val-card reveal reveal-delay-3"><div class="val-icon">🔧</div><h3 data-lang="th">ติดตั้งง่าย บำรุงรักษาต่ำ</h3><h3 data-lang="en">Easy Install, Low Maintenance</h3><p><span data-lang="th">ติดตั้งแบบ Inline Flange ไม่ต้องหยุดระบบ ไม่ต้องเปลี่ยนอุปกรณ์ใด ๆ หลังติดตั้ง ไม่ต้องบำรุงรักษาต่อเนื่อง</span><span data-lang="en">Inline Flange installation — no system downtime, no component replacement, and no ongoing maintenance required post-installation.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+      <div class="reveal">
+        <div class="label-tag"><span data-lang="th">ประวัติบริษัท</span><span data-lang="en">Company Timeline</span></div>
+        <h2><span data-lang="th">เส้นทาง <em class="sky">ของเรา</em></span><span data-lang="en">Our <em class="sky">Journey</em></span></h2>
+        <p style="color:var(--grey);font-size:14px;margin-top:12px;line-height:1.7;"><span data-lang="th">จาก Qualitech Equipment ผู้จัดจำหน่ายอุปกรณ์อุตสาหกรรมครบวงจร สู่ QTEwater ผู้เชี่ยวชาญด้าน Industrial Water Management</span><span data-lang="en">From Qualitech Equipment — a full-range industrial equipment distributor — to QTEwater, specialist in Industrial Water Management.</span></p>
+      </div>
+      <div class="timeline reveal reveal-delay-2">
+        <div class="tl-item"><div class="tl-year">2000s</div><h3 data-lang="th">ก่อตั้ง Qualitech Equipment</h3><h3 data-lang="en">Qualitech Equipment Founded</h3><p><span data-lang="th">เริ่มต้นในฐานะผู้จัดจำหน่ายอุปกรณ์อุตสาหกรรมในประเทศไทย</span><span data-lang="en">Started as an industrial equipment distributor in Thailand.</span></p></div>
+        <div class="tl-item"><div class="tl-year">2010s</div><h3 data-lang="th">ขยายสู่ Multiple Verticals</h3><h3 data-lang="en">Expansion into Multiple Verticals</h3><p><span data-lang="th">เพิ่มสาขา: รถยก, ระบบความปลอดภัย, LED, Air Purifier</span><span data-lang="en">Added divisions: forklifts, safety equipment, LED, air purifiers.</span></p></div>
+        <div class="tl-item"><div class="tl-year">ล่าสุด</div><h3 data-lang="th">เปิดตัว QTEwater</h3><h3 data-lang="en">QTEwater Launched</h3><p><span data-lang="th">สาขาเฉพาะด้าน Water Management พร้อม partnership กับ FlowX® Switzerland</span><span data-lang="en">Dedicated Water Management division launched with FlowX® Switzerland partnership.</span></p></div>
+        <div class="tl-item"><div class="tl-year">ปัจจุบัน</div><h3 data-lang="th">Authorized FlowX® Distributor Thailand</h3><h3 data-lang="en">Authorized FlowX® Distributor Thailand</h3><p><span data-lang="th">ให้บริการโรงงานอุตสาหกรรมทั่วประเทศ มุ่งสู่เป้าหมาย Net Zero ร่วมกับลูกค้า</span><span data-lang="en">Serving industrial plants nationwide, helping clients move toward Net Zero targets.</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="_shared/nav.js"></script>
+</body></html>

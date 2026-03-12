@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="th"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>QTEwater · กรณีศึกษา / Case Studies</title>
+<link rel="stylesheet" href="_shared/style.css">
+<style>
+/* FILTER TABS */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.ftab{padding:8px 18px;border-radius:20px;background:var(--white);border:1.5px solid var(--rule);font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--steel);cursor:pointer;transition:var(--transition);}
+.ftab:hover,.ftab.active{background:var(--blue);border-color:var(--blue);color:var(--white);}
+/* CASE CARDS */
+.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-bottom:64px;}
+.case-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform var(--transition),box-shadow var(--transition);}
+.case-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
+.case-header{background:linear-gradient(120deg,var(--navy),var(--blue));padding:24px;position:relative;overflow:hidden;}
+.case-header::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:rgba(56,174,224,.1);}
+.case-num{font-family:var(--font-mono);font-size:9.5px;letter-spacing:2.5px;color:rgba(255,255,255,.45);margin-bottom:6px;}
+.case-header h3{font-family:var(--font-display);font-size:19px;font-weight:800;color:var(--white);margin-bottom:4px;}
+.case-header .ind{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;}
+.case-body{padding:24px;}
+/* Before After */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+.ba-box{padding:14px;border-radius:6px;}
+.ba-box.before{background:#FEF3F0;border:1px solid rgba(232,85,48,.15);}
+.ba-box.after{background:#EDFBF4;border:1px solid rgba(0,184,122,.15);}
+.ba-label{font-family:var(--font-mono);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.ba-box.before .ba-label{color:var(--warn);}
+.ba-box.after  .ba-label{color:var(--green);}
+.ba-row{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--steel);padding:3px 0;}
+.ba-row span{font-size:13px;}
+/* Metrics */
+.metrics{display:flex;gap:0;border-top:1px solid var(--rule);padding-top:16px;}
+.metric{flex:1;text-align:center;border-right:1px solid var(--rule);}
+.metric:last-child{border-right:none;}
+.metric .mv{font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--blue);line-height:1;}
+.metric .ml{font-size:10.5px;color:var(--grey);margin-top:3px;}
+/* TESTIMONIALS */
+.testimonials{background:var(--offwhite);border-radius:var(--radius-lg);padding:48px;margin-bottom:64px;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px;}
+.testi-card{background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;box-shadow:var(--shadow-xs);}
+.testi-quote{font-size:30px;color:var(--ltblue);line-height:1;margin-bottom:10px;}
+.testi-card p{font-size:13.5px;color:var(--steel);line-height:1.7;margin-bottom:16px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--ltblue);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.testi-name{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--navy);}
+.testi-role{font-size:11.5px;color:var(--grey);}
+/* INDUSTRIES SERVED */
+.industries-served{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:48px;}
+.is-item{background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:18px 12px;text-align:center;box-shadow:var(--shadow-xs);transition:transform var(--transition),border-color var(--transition);}
+.is-item:hover{transform:translateY(-4px);border-color:var(--sky);}
+.is-item .ico{font-size:28px;margin-bottom:8px;}
+.is-item p{font-size:11.5px;color:var(--navy);font-weight:600;}
+.is-item .sub{font-size:10px;color:var(--grey);margin-top:2px;}
+/* PHOTO PLACEHOLDER NOTE */
+.photo-note{background:var(--ltblue);border:1px dashed var(--sky);border-radius:6px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.photo-note p{font-size:12.5px;color:var(--blue);line-height:1.6;}
+@media(max-width:900px){.cases-grid{grid-template-columns:1fr;}.testi-grid{grid-template-columns:1fr;}.industries-served{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:600px){.ba-grid{grid-template-columns:1fr;}.metrics{flex-wrap:wrap;}.metric{min-width:45%;border-bottom:1px solid var(--rule);padding-bottom:10px;}.industries-served{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body data-page="cases" class="lang-th">
+<div id="nav-mount"></div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-badge">04 // Case Studies · กรณีศึกษา</div>
+    <h1><span data-lang="th">ผลลัพธ์ <em class="cyan">จริงจากสนาม</em></span><span data-lang="en">Real Results <em class="cyan">From The Field</em></span></h1>
+    <p class="lead"><span data-lang="th">Before &amp; After จากการติดตั้งจริง ตัวเลขพลังงานที่ประหยัดได้ และ Testimonials จากลูกค้าในหลากหลายอุตสาหกรรม</span><span data-lang="en">Before &amp; After from real installations, energy savings data and testimonials from clients across multiple industries.</span></p>
+    <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.5px;color:rgba(255,255,255,.4);">
+      <a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="th">หน้าหลัก</a><a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="en">Home</a>
+      <span style="color:rgba(255,255,255,.2);">/</span>
+      <span data-lang="th">กรณีศึกษา</span><span data-lang="en">Case Studies</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <!-- Photo note -->
+    <div class="photo-note reveal">
+      <span style="font-size:20px;">📸</span>
+      <p><span data-lang="th"><strong>หมายเหตุ:</strong> พื้นที่ภาพถ่ายสำหรับรูป Before &amp; After จริงจากหน้างาน — เพิ่มรูปของคุณเองเมื่อพร้อม ตำแหน่งภาพถูกกำหนดไว้แล้วในทุก Case Card</span><span data-lang="en"><strong>Note:</strong> Image placeholders for real Before &amp; After site photos — replace with your own images when ready. Image positions are pre-defined in every Case Card.</span></p>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar reveal">
+      <button class="ftab active" data-lang="th" onclick="filterCases('all',this)">ทั้งหมด</button>
+      <button class="ftab active" data-lang="en" onclick="filterCases('all',this)">All</button>
+      <button class="ftab" onclick="filterCases('cooling',this)">Cooling Tower</button>
+      <button class="ftab" onclick="filterCases('heat',this)">Heat Exchanger</button>
+      <button class="ftab" onclick="filterCases('chiller',this)">Chiller</button>
+      <button class="ftab" onclick="filterCases('boiler',this)">Boiler</button>
+    </div>
+
+    <!-- Case cards -->
+    <div class="cases-grid" id="cases-grid">
+      <!-- Case 1 -->
+      <div class="case-card reveal" data-cat="cooling">
+        <div class="case-header">
+          <div class="case-num">CASE — 01</div>
+          <h3 data-lang="th">โรงงานผลิตอาหาร</h3><h3 data-lang="en">Food Manufacturing Plant</h3>
+          <div class="ind">Cooling Tower · Blue Line DN100</div>
+        </div>
+        <div class="case-body">
+          <!-- Before After image placeholders -->
+          <div class="ba-grid" style="margin-bottom:14px;">
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);">
+              <div>📷<br><span data-lang="th">รูปก่อนติดตั้ง</span><span data-lang="en">Before photo</span></div>
+            </div>
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);">
+              <div>📷<br><span data-lang="th">รูปหลังติดตั้ง</span><span data-lang="en">After photo</span></div>
+            </div>
+          </div>
+          <div class="ba-grid">
+            <div class="ba-box before">
+              <div class="ba-label">BEFORE</div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">Scale หนา 6mm บน Tube</span><span data-lang="en">6mm Scale on Tubes</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">ค่าไฟเพิ่ม 12%/ปี</span><span data-lang="en">+12% electricity/yr</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">ล้างระบบทุก 3 เดือน</span><span data-lang="en">Chemical clean every 3 months</span></div>
+            </div>
+            <div class="ba-box after">
+              <div class="ba-label">AFTER 12 MONTHS</div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">Scale ลดลง 82%</span><span data-lang="en">Scale reduced 82%</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">ค่าไฟลดลง 11.4%</span><span data-lang="en">-11.4% electricity</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">ไม่ต้องล้างด้วยสารเคมี</span><span data-lang="en">No chemical cleaning needed</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><div class="mv">11.4%</div><div class="ml" data-lang="th">ประหยัดพลังงาน</div><div class="ml" data-lang="en">Energy saved</div></div>
+            <div class="metric"><div class="mv">1.8M ฿</div><div class="ml" data-lang="th">ประหยัด/ปี</div><div class="ml" data-lang="en">Saved / yr</div></div>
+            <div class="metric"><div class="mv">&lt;10 mo</div><div class="ml">Payback</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card reveal reveal-delay-1" data-cat="heat">
+        <div class="case-header">
+          <div class="case-num">CASE — 02</div>
+          <h3 data-lang="th">โรงงานเคมีภัณฑ์</h3><h3 data-lang="en">Chemical Plant</h3>
+          <div class="ind">Heat Exchanger · Red Line DN125</div>
+        </div>
+        <div class="case-body">
+          <div class="ba-grid" style="margin-bottom:14px;">
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);"><div>📷<br><span data-lang="th">รูปก่อนติดตั้ง</span><span data-lang="en">Before photo</span></div></div>
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);"><div>📷<br><span data-lang="th">รูปหลังติดตั้ง</span><span data-lang="en">After photo</span></div></div>
+          </div>
+          <div class="ba-grid">
+            <div class="ba-box before">
+              <div class="ba-label">BEFORE</div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">Heat Transfer ลดลง 28%</span><span data-lang="en">Heat Transfer -28%</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">Scale หนา 9mm</span><span data-lang="en">9mm scale buildup</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">Shutdown ทุก 6 เดือน</span><span data-lang="en">Shutdown every 6 months</span></div>
+            </div>
+            <div class="ba-box after">
+              <div class="ba-label">AFTER 18 MONTHS</div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">Heat Transfer +24% recovery</span><span data-lang="en">Heat Transfer +24% recovery</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">Scale ลดลง 91%</span><span data-lang="en">Scale reduced 91%</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">ไม่ต้อง Shutdown</span><span data-lang="en">No scheduled shutdown</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><div class="mv">91%</div><div class="ml" data-lang="th">Scale ลดลง</div><div class="ml" data-lang="en">Scale reduction</div></div>
+            <div class="metric"><div class="mv">2.4M ฿</div><div class="ml" data-lang="th">ประหยัด/ปี</div><div class="ml" data-lang="en">Saved / yr</div></div>
+            <div class="metric"><div class="mv">&lt;9 mo</div><div class="ml">Payback</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card reveal reveal-delay-2" data-cat="chiller">
+        <div class="case-header">
+          <div class="case-num">CASE — 03</div>
+          <h3 data-lang="th">Data Center</h3><h3 data-lang="en">Data Center</h3>
+          <div class="ind">Precision Cooling · DN65 Hybrid</div>
+        </div>
+        <div class="case-body">
+          <div class="ba-grid" style="margin-bottom:14px;">
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);"><div>📷<br><span data-lang="th">รูปก่อนติดตั้ง</span><span data-lang="en">Before photo</span></div></div>
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);"><div>📷<br><span data-lang="th">รูปหลังติดตั้ง</span><span data-lang="en">After photo</span></div></div>
+          </div>
+          <div class="ba-grid">
+            <div class="ba-box before">
+              <div class="ba-label">BEFORE</div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">PUE สูงกว่าเป้าหมาย 8%</span><span data-lang="en">PUE 8% above target</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">Chiller ทำงานหนักเกิน</span><span data-lang="en">Chiller overloaded</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">Scale บน Condenser Coil</span><span data-lang="en">Scale on Condenser Coils</span></div>
+            </div>
+            <div class="ba-box after">
+              <div class="ba-label">AFTER 6 MONTHS</div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">PUE ลดลงสู่เป้าหมาย</span><span data-lang="en">PUE back on target</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">Chiller Load ลดลง 9%</span><span data-lang="en">Chiller load -9%</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">Condenser สะอาด ไม่มี Scale</span><span data-lang="en">Clean condensers, no scale</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><div class="mv">9%</div><div class="ml" data-lang="th">Chiller Load ลด</div><div class="ml" data-lang="en">Chiller Load reduced</div></div>
+            <div class="metric"><div class="mv">3.1M ฿</div><div class="ml" data-lang="th">ประหยัด/ปี</div><div class="ml" data-lang="en">Saved / yr</div></div>
+            <div class="metric"><div class="mv">&lt;8 mo</div><div class="ml">Payback</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 4 -->
+      <div class="case-card reveal reveal-delay-3" data-cat="boiler">
+        <div class="case-header">
+          <div class="case-num">CASE — 04</div>
+          <h3 data-lang="th">โรงงานอุตสาหกรรม</h3><h3 data-lang="en">Manufacturing Plant</h3>
+          <div class="ind">Boiler System · Blue Line DN80</div>
+        </div>
+        <div class="case-body">
+          <div class="ba-grid" style="margin-bottom:14px;">
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);"><div>📷<br><span data-lang="th">รูปก่อนติดตั้ง</span><span data-lang="en">Before photo</span></div></div>
+            <div style="background:var(--cloud);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--grey);text-align:center;border:1px dashed var(--rule);"><div>📷<br><span data-lang="th">รูปหลังติดตั้ง</span><span data-lang="en">After photo</span></div></div>
+          </div>
+          <div class="ba-grid">
+            <div class="ba-box before">
+              <div class="ba-label">BEFORE</div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">Scale บน Boiler Tube</span><span data-lang="en">Scale on Boiler Tubes</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">ค่าเชื้อเพลิงสูงกว่าปกติ</span><span data-lang="en">Fuel consumption above baseline</span></div>
+              <div class="ba-row"><span>🔴</span><span data-lang="th">ต้องใช้สารเคมีทำความสะอาด</span><span data-lang="en">Chemical descaling required</span></div>
+            </div>
+            <div class="ba-box after">
+              <div class="ba-label">AFTER 12 MONTHS</div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">Scale สะสมลดลง 78%</span><span data-lang="en">Scale accumulation -78%</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">ค่าเชื้อเพลิงลดลง 9.5%</span><span data-lang="en">Fuel cost -9.5%</span></div>
+              <div class="ba-row"><span>🟢</span><span data-lang="th">ไม่ต้องใช้สารเคมี</span><span data-lang="en">No chemical descaling</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><div class="mv">78%</div><div class="ml" data-lang="th">Scale ลดลง</div><div class="ml" data-lang="en">Scale reduction</div></div>
+            <div class="metric"><div class="mv">1.2M ฿</div><div class="ml" data-lang="th">ประหยัด/ปี</div><div class="ml" data-lang="en">Saved / yr</div></div>
+            <div class="metric"><div class="mv">&lt;11 mo</div><div class="ml">Payback</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="testimonials reveal">
+      <div class="label-tag"><span data-lang="th">เสียงจากลูกค้า</span><span data-lang="en">Client Testimonials</span></div>
+      <h2><span data-lang="th">สิ่งที่ <em class="sky">ลูกค้าพูดถึง</em> QTEwater</span><span data-lang="en">What Our <em class="sky">Clients Say</em></span></h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <p><span data-lang="th">หลังจากติดตั้ง FlowX® ผ่าน QTEwater เพียง 6 เดือน ค่าไฟฟ้าลดลงชัดเจน และระบบ Cooling Tower ไม่ต้องล้างด้วยสารเคมีเลยในรอบปีที่ผ่านมา</span><span data-lang="en">After installing FlowX® through QTEwater, our electricity bill dropped noticeably within 6 months, and our Cooling Tower hasn't needed chemical cleaning in over a year.</span></p>
+          <div class="testi-author"><div class="testi-avatar">🏭</div><div><div class="testi-name" data-lang="th">ผู้จัดการโรงงาน</div><div class="testi-name" data-lang="en">Plant Manager</div><div class="testi-role" data-lang="th">โรงงานผลิตอาหาร • กรุงเทพฯ</div><div class="testi-role" data-lang="en">Food Manufacturing Plant • Bangkok</div></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <p><span data-lang="th">ทีมวิศวกร QTEwater สำรวจระบบและให้คำแนะนำที่ตรงประเด็นมาก ติดตั้งเสร็จภายในวันเดียวโดยไม่ต้องหยุดสายการผลิต ผลลัพธ์เห็นได้ชัดภายใน 3 เดือน</span><span data-lang="en">The QTEwater engineering team surveyed our system and gave highly relevant advice. Installation finished in one day without stopping production lines. Results were visible within 3 months.</span></p>
+          <div class="testi-author"><div class="testi-avatar">⚗️</div><div><div class="testi-name" data-lang="th">วิศวกรสาธารณูปโภค</div><div class="testi-name" data-lang="en">Utilities Engineer</div><div class="testi-role" data-lang="th">โรงงานเคมีภัณฑ์ • อยุธยา</div><div class="testi-role" data-lang="en">Chemical Plant • Ayutthaya</div></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <p><span data-lang="th">เราเป็นห่วงเรื่อง Pressure Drop เนื่องจากระบบ Precision Cooling ของ Data Center ต้องการความแม่นยำสูง DN65 Hybrid แก้ปัญหานี้ได้อย่างสมบูรณ์</span><span data-lang="en">We were concerned about pressure drop because our Data Centre Precision Cooling demands high accuracy. The DN65 Hybrid solved this perfectly.</span></p>
+          <div class="testi-author"><div class="testi-avatar">🖥️</div><div><div class="testi-name" data-lang="th">ผู้อำนวยการฝ่ายไอที</div><div class="testi-name" data-lang="en">IT Infrastructure Director</div><div class="testi-role" data-lang="th">Data Center • กรุงเทพฯ</div><div class="testi-role" data-lang="en">Data Center • Bangkok</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INDUSTRIES SERVED -->
+    <div class="reveal" style="margin-bottom:28px;">
+      <div class="label-tag"><span data-lang="th">อุตสาหกรรมที่ให้บริการ</span><span data-lang="en">Industries Served</span></div>
+      <h2><span data-lang="th">เหมาะสำหรับทุก <em class="sky">อุตสาหกรรม</em></span><span data-lang="en">Suitable for Every <em class="sky">Industry</em></span></h2>
+    </div>
+    <div class="industries-served">
+      <div class="is-item reveal reveal-delay-1"><div class="ico">🥤</div><p data-lang="th">อาหาร &amp; เครื่องดื่ม</p><p data-lang="en">Food &amp; Beverage</p><div class="sub">Food &amp; Beverage</div></div>
+      <div class="is-item reveal reveal-delay-2"><div class="ico">⚗️</div><p data-lang="th">เคมีภัณฑ์</p><p data-lang="en">Chemical</p><div class="sub">Chemical Industry</div></div>
+      <div class="is-item reveal reveal-delay-3"><div class="ico">🛢️</div><p data-lang="th">ปิโตรเคมี</p><p data-lang="en">Petrochemical</p><div class="sub">Petrochemical</div></div>
+      <div class="is-item reveal reveal-delay-4"><div class="ico">🏭</div><p data-lang="th">การผลิต</p><p data-lang="en">Manufacturing</p><div class="sub">Manufacturing</div></div>
+      <div class="is-item reveal reveal-delay-5"><div class="ico">🖥️</div><p data-lang="th">ดาต้าเซ็นเตอร์</p><p data-lang="en">Data Centers</p><div class="sub">Data Centers</div></div>
+    </div>
+
+    <div style="text-align:center;" class="reveal">
+      <a href="index.html#contact" class="btn btn-primary btn-lg"><span data-lang="th">ขอคำปรึกษาฟรีสำหรับโรงงานคุณ →</span><span data-lang="en">Get a Free Consultation for Your Plant →</span></a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="_shared/nav.js"></script>
+<script>
+function filterCases(cat, el) {
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.case-card').forEach(c=>{
+    c.style.display = (cat==='all' || c.dataset.cat===cat) ? '' : 'none';
+  });
+}
+</script>
+</body></html>

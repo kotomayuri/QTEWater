@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="th"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>QTEwater · ผลิตภัณฑ์ / Products</title>
+<link rel="stylesheet" href="_shared/style.css">
+<style>
+.prod-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;}
+.pc{border:1px solid var(--rule);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);background:var(--white);}
+.pc:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--sky);}
+.pc-img{height:210px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.pc-img .emoji{font-size:60px;opacity:.45;}
+.pc-badge{position:absolute;top:14px;left:14px;padding:4px 10px;border-radius:3px;font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--white);}
+.b-blue{background:var(--blue);}
+.b-red{background:#C0392B;}
+.b-cyan{background:var(--cyan);color:var(--navy);}
+.pc-body{padding:26px 22px;}
+.pc-body h3{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.pc-body p{font-size:13px;color:var(--grey);line-height:1.65;margin-bottom:14px;}
+.pc-body .chips{margin-bottom:18px;}
+.pc-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);transition:gap var(--transition),color var(--transition);}
+.pc:hover .pc-link{gap:10px;color:var(--sky);}
+/* COMPARE TABLE */
+.compare-wrap{overflow-x:auto;margin-bottom:56px;}
+.compare-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+.compare-table th{background:var(--navy);color:var(--white);padding:14px 18px;font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:.5px;text-align:left;}
+.compare-table th:first-child{background:var(--ink);}
+.compare-table td{padding:13px 18px;border-bottom:1px solid var(--rule);vertical-align:middle;}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table tr:nth-child(even) td{background:var(--offwhite);}
+.compare-table td:first-child{font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey);}
+.compare-table .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+/* HOW TO SELECT */
+.select-guide{background:var(--offwhite);border-radius:var(--radius-lg);padding:40px;}
+.select-guide h2{margin-bottom:28px;}
+.guide-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.gc{background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:22px;}
+.gc-step{font-family:var(--font-mono);font-size:10px;letter-spacing:2.5px;color:var(--sky);margin-bottom:8px;}
+.gc h3{font-family:var(--font-display);font-size:17px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.gc p{font-size:13px;color:var(--grey);line-height:1.6;}
+/* POWERED BY */
+.powered-strip{display:flex;align-items:center;gap:24px;padding:24px 28px;background:var(--offwhite);border:1px solid var(--rule);border-radius:8px;flex-wrap:wrap;margin-bottom:56px;}
+.powered-strip p{font-size:13.5px;color:var(--steel);line-height:1.65;flex:1;min-width:200px;}
+.powered-strip a{color:var(--blue);font-weight:600;}
+@media(max-width:900px){.prod-cards{grid-template-columns:1fr 1fr;}.guide-cards{grid-template-columns:1fr;}}
+@media(max-width:600px){.prod-cards{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-page="products" class="lang-th">
+<div id="nav-mount"></div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-badge">03 // Products · FlowX® Series</div>
+    <h1><span data-lang="th">FlowX® <em class="cyan">Industrial Series</em></span><span data-lang="en">FlowX® <em class="cyan">Industrial Series</em></span></h1>
+    <p class="lead"><span data-lang="th">รุ่นสำหรับงานอุตสาหกรรม Flange Connection DN40–DN150 พร้อมตารางเปรียบเทียบและคำแนะนำการเลือกรุ่น</span><span data-lang="en">Industrial-grade Flange Connection units for DN40–DN150. Full comparison table and model selection guide included.</span></p>
+    <div style="margin-top:22px;display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.5px;color:rgba(255,255,255,.4);">
+      <a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="th">หน้าหลัก</a><a href="index.html" style="color:rgba(255,255,255,.4);" data-lang="en">Home</a>
+      <span style="color:rgba(255,255,255,.2);">/</span>
+      <span data-lang="th">ผลิตภัณฑ์</span><span data-lang="en">Products</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <!-- Powered by -->
+    <div class="powered-strip reveal">
+      <svg width="90" height="28" viewBox="0 0 90 28"><text x="0" y="22" font-family="'Barlow Condensed',sans-serif" font-size="28" font-weight="800" fill="#1261AB">Flow</text><text x="62" y="22" font-family="'Barlow Condensed',sans-serif" font-size="28" font-weight="800" fill="#3AAEE0">X</text><text x="82" y="10" font-family="sans-serif" font-size="9" fill="#6C86A2">®</text></svg>
+      <p><span data-lang="th">ผลิตภัณฑ์ทั้งหมดใช้เทคโนโลยี <strong>Turbulent Galvanic Polarization (TGP®)</strong> สิทธิบัตรสวิส ติดตั้งแล้วกว่า 80 ประเทศ QTEwater เป็นตัวแทนจำหน่ายอย่างเป็นทางการในประเทศไทย <a href="technology.html">เรียนรู้เทคโนโลยี →</a></span><span data-lang="en">All products use <strong>Turbulent Galvanic Polarization (TGP®)</strong> Swiss patent technology, deployed in 80+ countries. QTEwater is the authorized distributor in Thailand. <a href="technology.html">Learn the technology →</a></span></p>
+    </div>
+
+    <!-- Product cards -->
+    <div class="prod-cards">
+      <div class="pc reveal reveal-delay-1">
+        <div class="pc-img" style="background:linear-gradient(135deg,#C8DDF5,#EBF4FF);"><div class="emoji">🔵</div><span class="pc-badge b-blue">Blue Line</span></div>
+        <div class="pc-body">
+          <h3>Blue Line<br>for Industry</h3>
+          <p><span data-lang="th">รุ่นสำหรับอุตสาหกรรมขนาดกลาง รองรับ High-Flow ด้วย 3 TGP Coretubes เหมาะสำหรับระบบ Cooling Tower และ Heat Exchanger ขนาดกลาง</span><span data-lang="en">Mid-size industrial model. High-flow capacity with 3 TGP Coretubes. Ideal for medium-scale Cooling Tower and Heat Exchanger systems.</span></p>
+          <div class="chips"><span class="chip">DN40–DN125</span><span class="chip">8–25 m³/hr</span><span class="chip">Max 16 Bar</span><span class="chip chip-blue">3 TGP Coretubes</span><span class="chip">Flange</span></div>
+          <a href="index.html#contact" class="pc-link"><span data-lang="th">สอบถามราคา →</span><span data-lang="en">Enquire →</span></a>
+        </div>
+      </div>
+      <div class="pc reveal reveal-delay-2">
+        <div class="pc-img" style="background:linear-gradient(135deg,#FDDEDE,#FFF5F5);"><div class="emoji">🔴</div><span class="pc-badge b-red">Red Line</span></div>
+        <div class="pc-body">
+          <h3>Red Line<br>for Industry</h3>
+          <p><span data-lang="th">รุ่น Heavy Industrial สำหรับโรงงานขนาดใหญ่ รองรับท่อ DN150 และอัตราการไหลสูงถึง 60 m³/hr ด้วย 3–4 TGP Coretubes</span><span data-lang="en">Heavy industrial model for large plants. Supports DN150 pipe and flow rates up to 60 m³/hr with 3–4 TGP Coretubes.</span></p>
+          <div class="chips"><span class="chip">DN40–DN150</span><span class="chip">8–60 m³/hr</span><span class="chip">Max 16 Bar</span><span class="chip chip-blue">3–4 TGP Coretubes</span><span class="chip">Heavy Ind.</span></div>
+          <a href="index.html#contact" class="pc-link"><span data-lang="th">สอบถามราคา →</span><span data-lang="en">Enquire →</span></a>
+        </div>
+      </div>
+      <div class="pc reveal reveal-delay-3">
+        <div class="pc-img" style="background:linear-gradient(135deg,#C8F5F0,#EBFFFE);"><div class="emoji">🔷</div><span class="pc-badge b-cyan">DN65 Hybrid</span></div>
+        <div class="pc-body">
+          <h3>DN65 Hybrid<br>Line</h3>
+          <p><span data-lang="th">รุ่นพิเศษ Hybrid ผสม 4 TGP Coretubes + Linear Technology สำหรับระบบที่ต้องการ Pressure Drop ต่ำมาก ไม่เกิน 0.5 Bar</span><span data-lang="en">Special Hybrid model combining 4 TGP Coretubes and Linear Technology for systems requiring minimal pressure drop below 0.5 Bar.</span></p>
+          <div class="chips"><span class="chip">DN65 Flange</span><span class="chip">16 m³/hr</span><span class="chip">Max 10 Bar</span><span class="chip chip-blue">4 TGP + Linear</span><span class="chip">&lt;0.5 Bar Drop</span></div>
+          <a href="index.html#contact" class="pc-link"><span data-lang="th">สอบถามราคา →</span><span data-lang="en">Enquire →</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compare table -->
+    <div class="reveal" style="margin-bottom:16px;">
+      <div class="label-tag"><span data-lang="th">ตารางเปรียบเทียบ</span><span data-lang="en">Comparison Table</span></div>
+      <h2><span data-lang="th">เปรียบเทียบ <em class="sky">ทุกรุ่น</em></span><span data-lang="en">All Models <em class="sky">Compared</em></span></h2>
+    </div>
+    <div class="compare-wrap reveal reveal-delay-1">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th data-lang="th">คุณสมบัติ</th><th data-lang="th">🔵 Blue Line</th><th data-lang="th">🔴 Red Line</th><th data-lang="th">🔷 DN65 Hybrid</th>
+            <th data-lang="en">Specification</th><th data-lang="en">🔵 Blue Line</th><th data-lang="en">🔴 Red Line</th><th data-lang="en">🔷 DN65 Hybrid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Pipe Size</td><td>DN40–DN125</td><td>DN40–DN150</td><td>DN65</td></tr>
+          <tr><td>Flow Rate</td><td>8–25 m³/hr</td><td>8–60 m³/hr</td><td>16 m³/hr</td></tr>
+          <tr><td>Max Pressure</td><td>16 Bar</td><td>16 Bar</td><td>10 Bar</td></tr>
+          <tr><td>TGP Coretubes</td><td>3</td><td>3–4</td><td>4 + Linear</td></tr>
+          <tr><td>Pressure Drop</td><td data-lang="th">ปกติ</td><td data-lang="en">Standard</td><td data-lang="th">ปกติ</td><td data-lang="en">Standard</td><td>&lt;0.5 Bar</td></tr>
+          <tr><td data-lang="th">เหมาะสำหรับ</td><td data-lang="en">Best For</td><td data-lang="th">อุตสาหกรรมขนาดกลาง</td><td data-lang="en">Mid-size Industrial</td><td data-lang="th">อุตสาหกรรมหนัก</td><td data-lang="en">Heavy Industrial</td><td data-lang="th">Low Pressure Drop</td><td data-lang="en">Low Pressure Drop</td></tr>
+          <tr><td>Connection</td><td>Flange</td><td>Flange</td><td>Flange</td></tr>
+          <tr><td data-lang="th">ไม่ใช้ไฟฟ้า</td><td data-lang="en">No Power</td><td>✅</td><td>✅</td><td>✅</td></tr>
+          <tr><td data-lang="th">ไม่ใช้สารเคมี</td><td data-lang="en">No Chemicals</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Selection guide -->
+    <div class="select-guide reveal">
+      <div class="label-tag"><span data-lang="th">คำแนะนำการเลือก</span><span data-lang="en">Selection Guide</span></div>
+      <h2><span data-lang="th">เลือกรุ่นที่ <em class="sky">เหมาะกับคุณ</em></span><span data-lang="en">Choose the <em class="sky">Right Model</em></span></h2>
+      <div class="guide-cards" style="margin-top:28px;">
+        <div class="gc"><div class="gc-step">STEP 01</div><h3 data-lang="th">วัดขนาดท่อ</h3><h3 data-lang="en">Measure Pipe Diameter</h3><p><span data-lang="th">วัด Pipe Diameter ที่จุดติดตั้ง ถ้า DN40–DN125 เลือก Blue Line ถ้า DN125–DN150 เลือก Red Line ถ้า DN65 และต้องการ Low Pressure Drop เลือก Hybrid</span><span data-lang="en">Measure pipe diameter at installation point. DN40–DN125: Blue Line. DN125–DN150: Red Line. DN65 needing low pressure drop: Hybrid.</span></p></div>
+        <div class="gc"><div class="gc-step">STEP 02</div><h3 data-lang="th">ตรวจ Flow Rate</h3><h3 data-lang="en">Check Flow Rate</h3><p><span data-lang="th">Blue Line รองรับ 8–25 m³/hr, Red Line รองรับ 8–60 m³/hr หาก Flow Rate สูง ให้เลือก Red Line เสมอ เพื่อประสิทธิภาพที่ดีที่สุด</span><span data-lang="en">Blue Line handles 8–25 m³/hr, Red Line handles 8–60 m³/hr. For high flow rates, always choose Red Line for best performance.</span></p></div>
+        <div class="gc"><div class="gc-step">STEP 03</div><h3 data-lang="th">ปรึกษาวิศวกร</h3><h3 data-lang="en">Consult Our Engineers</h3><p><span data-lang="th">ไม่แน่ใจ? ทีมวิศวกรของ QTEwater จะสำรวจหน้างานและแนะนำรุ่นที่เหมาะสมให้ฟรี ไม่มีค่าใช้จ่าย</span><span data-lang="en">Not sure? QTEwater's engineers will survey your site and recommend the right model at no cost.</span></p></div>
+      </div>
+      <div style="margin-top:28px;">
+        <a href="index.html#contact" class="btn btn-primary"><span data-lang="th">ขอคำปรึกษาจากวิศวกร →</span><span data-lang="en">Get Engineering Advice →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="_shared/nav.js"></script>
+</body></html>
