@@ -226,17 +226,17 @@ input, select, textarea { font-family:var(--font-thai); }
 h1, .h1 {
   font-family:var(--font-display);
   font-size:clamp(36px,5.5vw,72px); font-weight:900;
-  line-height:.96; letter-spacing:-2px; color:var(--navy);
+  line-height:.96; letter-spacing:-0.02em; color:var(--navy);
 }
 h2, .h2 {
   font-family:var(--font-display);
   font-size:clamp(28px,4vw,48px); font-weight:800;
-  line-height:1.05; letter-spacing:-1px; color:var(--navy);
+  line-height:1.05; letter-spacing:-0.02em; color:var(--navy);
 }
 h3, .h3 {
   font-family:var(--font-display);
   font-size:clamp(20px,2.5vw,26px); font-weight:700;
-  letter-spacing:-.3px; color:var(--navy);
+  letter-spacing:-0.02em; color:var(--navy);
 }
 .section-dark h1, .section-dark h2, .section-dark h3 { color:var(--white); }
 em.sky { color:var(--sky); font-style:normal; }
