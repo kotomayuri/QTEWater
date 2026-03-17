@@ -26,7 +26,7 @@
 <nav class="nav" id="main-nav">
   <div class="container">
     <a href="index.html" class="nav-logo">
-      <img src="image/qtewater.png" 
+      <img src="/qtewater/image/qtewater.png" class="nav-logo-icon"
        alt="QTE Water" 
        class="nav-logo-icon">
       <div class="nav-logo-text">
