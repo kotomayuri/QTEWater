@@ -534,7 +534,7 @@ body.lang-en [data-lang-block="en"] { display:block; }
 
 .compare-table th:first-child,
 .compare-table td:first-child {
-  text-align: left;
+  text-align: center;
   font-weight: 600;
 }
 
