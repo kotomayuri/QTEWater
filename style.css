@@ -448,3 +448,61 @@ body.lang-en [data-lang="en"] { display:initial; }
 [data-lang-block] { display:none; }
 body.lang-th [data-lang-block="th"] { display:block; }
 body.lang-en [data-lang-block="en"] { display:block; }
+
+/* ═══════════════════════════════════════
+   COMPARE TABLE (FIX)
+═══════════════════════════════════════ */
+
+.compare-wrap {
+  width: 100%;
+  overflow-x: auto; /* prevents breaking on small screens */
+}
+
+.compare-table {
+  width: 100%;
+  min-width: 720px; /* important */
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* header */
+.compare-table thead th {
+  background: var(--cloud);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* cells */
+.compare-table th,
+.compare-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* first column */
+.compare-table th:first-child,
+.compare-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* hover effect */
+.compare-table tbody tr:hover {
+  background: var(--offwhite);
+}
+
+/* last row fix */
+.compare-table tr:last-child td {
+  border-bottom: none;
+}
