@@ -14,7 +14,7 @@
       <p>QTEwater · Authorized FlowX® Distributor Thailand · Qualitech Equipment Co., Ltd.</p>
     </div>
     <div class="topbar-right">
-      <a href="tel:+6600000000">📞 +66-XX-XXX-XXXX</a>
+      <a href="tel:+66 81-844-4523">📞 +66 81-844-4523</a>
       <a href="mailto:info@qtewater.com">✉ info@qtewater.com</a>
       <div class="lang-toggle" id="lang-toggle">
         <span class="lang-btn active" data-lang-target="th">TH</span>
@@ -112,7 +112,7 @@
         </p>
       </div>
       <div class="btn-group">
-        <a href="tel:+6600000000" class="btn btn-white">📞 +66-XX-XXX-XXXX</a>
+        <a href="tel:+66 81-844-4523" class="btn btn-white">📞 +66-81-844-4523</a>
         <a href="mailto:info@qtewater.com" class="btn btn-ghost">✉ info@qtewater.com</a>
       </div>
     </div>
