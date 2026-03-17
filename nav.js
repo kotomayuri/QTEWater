@@ -26,14 +26,9 @@
 <nav class="nav" id="main-nav">
   <div class="container">
     <a href="index.html" class="nav-logo">
-      <svg class="nav-logo-icon" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="18" r="17" fill="#1261AB"/>
-        <path d="M18 5.5 C18 5.5,9 15,9 22 C9 27.5 13 32 18 32 C23 32 27 27.5 27 22 C27 15 18 5.5 18 5.5Z"
-              fill="none" stroke="white" stroke-width="2" opacity=".9"/>
-        <path d="M18 13 C18 13,13.5 18.5,13.5 22.5 C13.5 25 15.5 27 18 27"
-              fill="none" stroke="#90D8F5" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
-        <line x1="25" y1="28" x2="29.5" y2="32.5" stroke="#3AAEE0" stroke-width="2.2" stroke-linecap="round"/>
-      </svg>
+      <img src="./images/qtewater.png" 
+       alt="QTE Water" 
+       class="nav-logo-icon">
       <div class="nav-logo-text">
         <div class="brand">QTE<em>water</em></div>
         <div class="subbrand">Industrial Water Management</div>
