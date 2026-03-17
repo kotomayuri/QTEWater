@@ -565,3 +565,8 @@ body.lang-en [data-lang-block="en"] { display:block; }
   color: white;
   border-radius: 3px;
 }
+/* Force center SME column (9th column) */
+.compare-table td:nth-child(9),
+.compare-table th:nth-child(9) {
+  text-align: center !important;
+}
